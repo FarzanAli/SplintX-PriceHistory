@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Price History</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+  <script async type="text/javascript" src="chart_script.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="ui-container">
+      <h2>Card</h2>
+
+      <div class="select-box">
+        <div class="card-options-container">
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Goblin Shaman'>Goblin Shaman</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Giant Roc'>Giant Roc</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Kobold Miner'>Kobold Miner</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Fire Beetle'>Fire Beetle</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Malric Inferno'>Malric Inferno</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Serpentine Soldier'>Serpentine Soldier</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Pit Ogre'>Pit Ogre</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Cerberus'>Cerberus</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Fire Demon'>Fire Demon</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Serpent of the Flame'>Serpent of the Flame</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Elemental Phoenix'>Elemental Phoenix</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Pirate Captain'>Pirate Captain</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Spineback Turtle'>Spineback Turtle</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Crustacean King'>Crustacean King</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Sabre Shark'>Sabre Shark</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Alric Stormbringer'>Alric Stormbringer</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Medusa'>Medusa</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Water Elemental'>Water Elemental</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Frozen Soldier'>Frozen Soldier</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Mischievous Mermaid'>Mischievous Mermaid</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Naga Warrior'>Naga Warrior</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Frost Giant'>Frost Giant</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Flesh Golem'>Flesh Golem</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Goblin Sorcerer'>Goblin Sorcerer</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Rexxie'>Rexxie</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Minotaur Warrior'>Minotaur Warrior</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Lyanna Natura'>Lyanna Natura</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Earth Elemental'>Earth Elemental</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Stone Golem'>Stone Golem</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Stonesplitter Orc'>Stonesplitter Orc</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Magi of the Forest'>Magi of the Forest</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Swamp Thing'>Swamp Thing</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Spirit of the Forest'>Spirit of the Forest</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Divine Healer'>Divine Healer</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Feral Spirit'>Feral Spirit</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Silvershield Knight'>Silvershield Knight</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Silvershield Warrior'>Silvershield Warrior</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Tyrus Paladium'>Tyrus Paladium</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Peacebringer'>Peacebringer</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Silvershield Paladin'>Silvershield Paladin</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Clay Golem'>Clay Golem</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Defender of Truth'>Defender of Truth</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Air Elemental'>Air Elemental</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Angel of Light'>Angel of Light</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Animated Corpse'>Animated Corpse</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Haunted Spider'>Haunted Spider</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Skeleton Assassin'>Skeleton Assassin</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Spineback Wolf'>Spineback Wolf</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Zintar Mortalis'>Zintar Mortalis</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Haunted Spirit'>Haunted Spirit</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Twisted Jester'>Twisted Jester</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Undead Priest'>Undead Priest</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Dark Enchantress'>Dark Enchantress</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Screaming Banshee'>Screaming Banshee</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Lord of Darkness'>Lord of Darkness</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Selenia Sky'>Selenia Sky</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Lightning Dragon'>Lightning Dragon</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Chromatic Dragon'>Chromatic Dragon</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Gold Dragon'>Gold Dragon</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Peaceful Giant'>Peaceful Giant</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Grumpy Dwarf'>Grumpy Dwarf</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Elven Cutthroat'>Elven Cutthroat</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Centaur'>Centaur</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Cocatrice'>Cocatrice</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Cyclops'>Cyclops</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Enchanted Pixie'>Enchanted Pixie</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Raging Impaler'>Raging Impaler</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Magi Sphinx'>Magi Sphinx</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Hydra'>Hydra</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Talia Firestorm'>Talia Firestorm</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Xia Seachan'>Xia Seachan</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Xander Foxwood'>Xander Foxwood</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Kiara Lightbringer'>Kiara Lightbringer</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Jarlax the Undead'>Jarlax the Undead</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Dragon Whelp'>Dragon Whelp</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Royal Dragon Archer'>Royal Dragon Archer</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Shin-Lo'>Shin-Lo</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Neb Seni'>Neb Seni</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Highland Archer'>Highland Archer</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Rusty Android'>Rusty Android</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Hobgoblin'>Hobgoblin</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Lord Arianthus'>Lord Arianthus</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Sea Genie'>Sea Genie</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Divine Sorceress'>Divine Sorceress</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Mushroom Seer'>Mushroom Seer</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Vampire'>Vampire</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Flame Imp'>Flame Imp</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Daria Dragonscale'>Daria Dragonscale</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Sacred Unicorn'>Sacred Unicorn</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Wood Nymph'>Wood Nymph</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Creeping Ooze'>Creeping Ooze</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Phantom Soldier'>Phantom Soldier</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Pirate Archer'>Pirate Archer</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Naga Fire Wizard'>Naga Fire Wizard</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Brownie'>Brownie</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Silvershield Archers'>Silvershield Archers</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Goblin Mech'>Goblin Mech</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Ruler of the Seas'>Ruler of the Seas</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Skeletal Warrior'>Skeletal Warrior</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Imp Bowman'>Imp Bowman</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Crystal Werewolf'>Crystal Werewolf</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Javelin Thrower'>Javelin Thrower</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Sea Monster'>Sea Monster</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Prismatic Energy'>Prismatic Energy</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Undead Minotaur'>Undead Minotaur</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Exploding Dwarf'>Exploding Dwarf</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Manticore'>Manticore</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Black Dragon'>Black Dragon</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Crypt Mancer'>Crypt Mancer</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Plado Emberstorm'>Plado Emberstorm</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Valnamor'>Valnamor</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Prince Rennyn'>Prince Rennyn</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='The Peakrider'>The Peakrider</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Delwyn Dragonscale'>Delwyn Dragonscale</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Dragonling Bowman'>Dragonling Bowman</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Fiendish Harpy'>Fiendish Harpy</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Red Dragon'>Red Dragon</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Armorsmith'>Armorsmith</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Silvershield Bard'>Silvershield Bard</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Goblin Chef'>Goblin Chef</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Minotaur Warlord'>Minotaur Warlord</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Electric Eels'>Electric Eels</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Mermaid Healer'>Mermaid Healer</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Undead Archer'>Undead Archer</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Corrupted Pegasus'>Corrupted Pegasus</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Molten Ogre'>Molten Ogre</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Lord of Fire'>Lord of Fire</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Enchanted Defender'>Enchanted Defender</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Dwarven Wizard'>Dwarven Wizard</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Archmage Arius'>Archmage Arius</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Furious Chicken'>Furious Chicken</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Fallen Specter'>Fallen Specter</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Beetle Queen'>Beetle Queen</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Naga Windmaster'>Naga Windmaster</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Maggots'>Maggots</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Cursed Slimeball'>Cursed Slimeball</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Giant Scorpion'>Giant Scorpion</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Undead Badger'>Undead Badger</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Dark Astronomer'>Dark Astronomer</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Bone Golem'>Bone Golem</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Death Elemental'>Death Elemental</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Soulstorm'>Soulstorm</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Darkest Mage'>Darkest Mage</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Dark Ha' on'>Dark Ha'on</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Contessa L' ament'>Contessa L'ament</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Cave Slug'>Cave Slug</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Crystal Jaguar'>Crystal Jaguar</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Lone Boatman'>Lone Boatman</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Herbalist'>Herbalist</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Truthspeaker'>Truthspeaker</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Luminous Eagle'>Luminous Eagle</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Shieldbearer'>Shieldbearer</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Light Elemental'>Light Elemental</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Thunderbird'>Thunderbird</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='High Priest Darius'>High Priest Darius</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Mother Khala'>Mother Khala</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Kobold Bruiser'>Kobold Bruiser</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Serpentine Spy'>Serpentine Spy</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Magma Troll'>Magma Troll</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Goblin Fireballer'>Goblin Fireballer</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Fire Elemental'>Fire Elemental</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Living Lava'>Living Lava</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Spark Pixies'>Spark Pixies</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Ferexia General'>Ferexia General</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Pyromaniac'>Pyromaniac</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Magnor'>Magnor</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Pyre'>Pyre</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Feasting Seaweed'>Feasting Seaweed</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Albatross'>Albatross</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Tortisian Fighter'>Tortisian Fighter</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Sniping Narwhal'>Sniping Narwhal</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Ice Pixie'>Ice Pixie</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Giant Squid'>Giant Squid</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Serpent of Eld'>Serpent of Eld</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Coral Wraith'>Coral Wraith</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Azmare Harpoonist'>Azmare Harpoonist</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Phantom of the Abyss'>Phantom of the Abyss</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Bortus'>Bortus</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Goblin Thief'>Goblin Thief</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Failed Summoner'>Failed Summoner</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Biceratops'>Biceratops</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Orc Sergeant'>Orc Sergeant</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Khmer Princess'>Khmer Princess</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Unicorn Mustang'>Unicorn Mustang</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Child of the Forest'>Child of the Forest</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Mitica Headhunter'>Mitica Headhunter</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Sporcerer'>Sporcerer</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Kron the Undying'>Kron the Undying</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Wizard of Eastwood'>Wizard of Eastwood</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Elven Defender'>Elven Defender</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Horny Toad'>Horny Toad</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Mantoid'>Mantoid</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Parasitic Growth'>Parasitic Growth</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Elven Mystic'>Elven Mystic</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Goblin Chariot'>Goblin Chariot</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Tower Griffin'>Tower Griffin</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='War Chaang'>War Chaang</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Tortisian Chief'>Tortisian Chief</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Cornealus'>Cornealus</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Camila Sungazer'>Camila Sungazer</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='The Vigilator'>The Vigilator</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Scale Doctor'>Scale Doctor</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Dragon Jumper'>Dragon Jumper</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Gloridax Magus'>Gloridax Magus</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Prince Julian'>Prince Julian</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Boogeyman'>Boogeyman</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Spirit Miner'>Spirit Miner</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Battle Orca'>Battle Orca</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Chain Golem'>Chain Golem</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Diamond Dragon'>Diamond Dragon</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Gloridax Guardian'>Gloridax Guardian</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Fire Spitter'>Fire Spitter</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='The Kraken'>The Kraken</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Ettin Spearman'>Ettin Spearman</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Octopider'>Octopider</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Silvershield Assassin'>Silvershield Assassin</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Baby Unicorn'>Baby Unicorn</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Gelatinous Cube'>Gelatinous Cube</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Gremlin Blaster'>Gremlin Blaster</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Screeching Vulture'>Screeching Vulture</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Spirit Shaman'>Spirit Shaman</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Zalran Efreet'>Zalran Efreet</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Serpentine Mystic'>Serpentine Mystic</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Drake of Arnak'>Drake of Arnak</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Barking Spider'>Barking Spider</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Nectar Queen'>Nectar Queen</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Flame Monkey'>Flame Monkey</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Pyromancer'>Pyromancer</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Undead Rexx'>Undead Rexx</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Shadowy Presence'>Shadowy Presence</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Torhilo the Frozen'>Torhilo the Frozen</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Wave Runner'>Wave Runner</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Warrior of Peace'>Warrior of Peace</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Evangelist'>Evangelist</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Mimosa Nightshade'>Mimosa Nightshade</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Yodin Zaku'>Yodin Zaku</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Halfling Alchemist'>Halfling Alchemist</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Mighty Dricken'>Mighty Dricken</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Chanseus the Great'>Chanseus the Great</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Kretch Tallevor'>Kretch Tallevor</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Onyx Sentinel'>Onyx Sentinel</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Sand Worm'>Sand Worm</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Silvershield Sheriff'>Silvershield Sheriff</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Bila the Radiant'>Bila the Radiant</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Grim Reaper'>Grim Reaper</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Phantasm'>Phantasm</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Fineas Rage'>Fineas Rage</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Ant Miners'>Ant Miners</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Spirit Druid Grog'>Spirit Druid Grog</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Captain' s Ghost'>Captain's Ghost</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Kelp Initiate'>Kelp Initiate</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Gloridax Soldier'>Gloridax Soldier</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" />
+            <label for='Centauri Mage'>Centauri Mage</label>
+          </div>
+
+
+
+        </div>
+
+        <div class="selected-card">Goblin Shaman</div>
+
+        <div class="search-box">
+          <input type="text" placeholder="Start Typing..." />
+        </div>
+      </div>
+
+      <div class="foil">
+
+        <h2>Select Foil</h2>
+
+        <div class="foil-options">
+
+          <div class="true-option">
+            <input type="radio" class="radio"/>
+            <label for='true'>Gold</label>
+          </div>
+
+          <div class="false-option">
+            <input type="radio" class="radio" checked="checked" />
+            <label for='false'>Regular</label>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="edition-select-box">
+        <div class="edition-options-container">
+
+          <div class="edition-option">
+            <input type="radio" class="radio"/>
+            <label for='alpha'>Alpha</label>
+          </div>
+
+          <div class="edition-option">
+            <input type="radio" class="radio"/>
+            <label for='beta'>Beta</label>
+          </div>
+
+          <div class="edition-option">
+            <input type="radio" class="radio"/>
+            <label for='promo'>Promo</label>
+          </div>
+
+          <div class="edition-option">
+            <input type="radio" class="radio"/>
+            <label for='reward'>Reward</label>
+          </div>
+
+          <div class="edition-option">
+            <input type="radio" class="radio"/>
+            <label for='untamed'>Untamed</label>
+          </div>
+
+        </div>
+        <h2>Edition</h2>
+        <div class="edition-selected">Alpha</div>
+
+        <div class="edition-search-box">
+          <input type="text" placeholder="Start Typing..." />
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="canvas-holder"></div>
+    <canvas id="myChart"></canvas>
+  </div>
+  </div>
+</body>
+
+</html>

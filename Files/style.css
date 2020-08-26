@@ -1,0 +1,306 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background: #f7f6ff;
+}
+
+.container{
+  padding: 32px;
+}
+
+.canvas-holder{
+  position: relative
+}
+
+#myChart{
+  max-width: 1000px;
+}
+
+.ui-container {
+  margin-right: 100px;
+  padding: 32px;
+  float: left;
+}
+
+.select-box {
+  position: relative;
+  display: flex;
+  width: 275px;
+  flex-direction: column;
+}
+
+.select-box .card-options-container {
+  background: #0d2140;
+  color: #f5f6fa;
+  max-height: 0;
+  width: 100%;
+  opacity: 0;
+  transition: all 0.4s;
+  border-radius: 8px;
+  overflow: hidden;
+
+  order: 1;
+}
+
+.selected-card {
+  background: #0d2140;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  color: #f5f6fa;
+  position: relative;
+
+  order: 0;
+}
+
+.selected-card::after {
+  content: "";
+  background: url("img/arrow-down.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  position: absolute;
+  height: 100%;
+  width: 32px;
+  right: 10px;
+  top: 5px;
+
+  transition: all 0.4s;
+}
+
+.select-box .card-options-container.active {
+  max-height: 240px;
+  opacity: 1;
+  overflow-y: scroll;
+  margin-top: 54px;
+}
+
+.select-box .card-options-container.active + .selected-card::after {
+  transform: rotateX(180deg);
+  top: -6px;
+}
+
+.select-box .card-options-container::-webkit-scrollbar {
+  width: 8px;
+  background: #0d2140;
+  border-radius: 0 8px 8px 0;
+}
+
+.select-box .card-options-container::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 0 8px 8px 0;
+}
+
+.select-box .option,
+.selected-card {
+  padding: 12px 24px;
+  cursor: pointer;
+}
+
+.select-box .option:hover {
+  background: #525861;
+}
+
+.select-box label {
+  cursor: pointer;
+}
+
+.select-box .option .radio {
+  display: none;
+}
+
+/* Searchbox */
+
+.search-box input {
+  width: 100%;
+  padding: 12px 16px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  position: absolute;
+  border-radius: 8px 8px 0 0;
+  z-index: 100;
+  border: 8px solid #2f3640;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s;
+}
+
+.search-box input:focus {
+  outline: none;
+}
+
+.select-box .card-options-container.active ~ .search-box input {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/*Foil*/
+
+.foil{
+  position: relative;
+  margin-top: 40px;
+  bottom: 28px;
+}
+
+.foil .true-option:hover {
+  background: #525861;
+  transition: background-color 0.1s ease 0s;
+}
+
+.foil .false-option:hover {
+  background: #525861;
+  transition: background-color 0.1s ease 0s;
+}
+
+.foil .true-option .radio{
+  display: none;
+}
+
+.foil .false-option .radio{
+  display: none;
+}
+
+.true-option{
+  padding: 16px;
+  border-radius: 8px 8px 0px 0px;
+  color: white;
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+.false-option{
+  padding: 16px;
+  border-radius: 0px 0px 8px 8px;
+  pointer-events: auto;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  width:100%;
+  text-align: center;
+}
+
+.foil-options{
+  background:#0d2140;
+  border-radius: 8px;
+  width: 100px;
+  height: 100px;
+}
+
+/*Edition*/
+
+.edition-select-box {
+  position: relative;
+  display: flex;
+  width: 225px;
+  flex-direction: column;
+}
+
+.edition-select-box .edition-options-container {
+  background: #0d2140;
+  color: #f5f6fa;
+  max-height: 0;
+  width: 100%;
+  opacity: 0;
+  transition: all 0.4s;
+  border-radius: 8px;
+  overflow: hidden;
+
+  order: 1;
+}
+
+.edition-selected {
+  background: #0d2140;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  color: #f5f6fa;
+  position: relative;
+
+  order: 0;
+}
+
+.edition-selected::after {
+  content: "";
+  background: url("img/arrow-down.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  position: absolute;
+  height: 100%;
+  width: 32px;
+  right: 10px;
+  top: 5px;
+
+  transition: all 0.4s;
+}
+
+.edition-select-box .edition-options-container.active {
+  max-height: 240px;
+  opacity: 1;
+  overflow-y: scroll;
+  margin-top: 54px;
+}
+
+.edition-select-box .edition-options-container.active + .edition-selected::after {
+  transform: rotateX(180deg);
+  top: -6px;
+}
+
+.edition-select-box .edition-options-container::-webkit-scrollbar {
+  width: 8px;
+  background: #0d2140;
+  border-radius: 0 8px 8px 0;
+}
+
+.edition-select-box .edition-options-container::-webkit-scrollbar-thumb {
+  background: #525861;
+  border-radius: 0 8px 8px 0;
+}
+
+.edition-select-box .edition-option,
+.edition-selected {
+  padding: 12px 24px;
+  cursor: pointer;
+}
+
+.edition-select-box .edition-option:hover {
+  background: #414b57;
+}
+
+.edition-select-box label {
+  cursor: pointer;
+}
+
+.edition-select-box .edition-option .radio {
+  display: none;
+}
+
+/* Searchbox */
+
+.edition-search-box input {
+  width: 100%;
+  padding: 12px 16px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  position: absolute;
+  border-radius: 8px 8px 0 0;
+  z-index: 100;
+  border: 8px solid #0d2140;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s;
+}
+
+.edition-search-box input:focus {
+  outline: none;
+}
+
+.edition-select-box .edition-options-container.active ~ .edition-search-box input {
+  opacity: 1;
+  pointer-events: auto;
+}

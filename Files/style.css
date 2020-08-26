@@ -279,6 +279,59 @@ body {
   display: none;
 }
 
+/* Range */
+
+.range{
+  position: relative;
+  margin-top: 40px;
+  bottom: 28px;
+}
+
+.range .week-option:hover {
+  background: #525861;
+  transition: background-color 0.1s ease 0s;
+}
+
+.range .month-option:hover {
+  background: #525861;
+  transition: background-color 0.1s ease 0s;
+}
+
+.range .week-option .radio{
+  display: none;
+}
+
+.range .month-option .radio{
+  display: none;
+}
+
+.week-option{
+  padding: 16px;
+  border-radius: 8px 8px 0px 0px;
+  color: white;
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+.month-option{
+  padding: 16px;
+  border-radius: 0px 0px 8px 8px;
+  pointer-events: auto;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  width:100%;
+  text-align: center;
+}
+
+.range-options{
+  background:#0d2140;
+  border-radius: 8px;
+  width: 100px;
+  height: 100px;
+}
+
 /* Searchbox */
 
 .edition-search-box input {

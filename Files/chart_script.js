@@ -1,6 +1,7 @@
 let id = 1;
 let foil = false;
 let edition = 0;
+let range = 'week';
 
 const selected = document.querySelector(".selected-card");
 
@@ -19,6 +20,9 @@ const thirdOptionsList = document.querySelectorAll(".edition-option");
 
 let gold = document.querySelector(".true-option");
 let regular = document.querySelector(".false-option");
+
+let week = document.querySelector(".week-option");
+let month = document.querySelector(".month-option");
 
 
 selected.addEventListener("click", () => {
@@ -101,6 +105,16 @@ const thirdFilterList = searchTerm => {
   });
 };
 
+week.addEventListener("click", () =>{
+  range = 'week'
+  getAndSetPrice();
+});
+
+month.addEventListener("click", () =>{
+  range = 'month'
+  getAndSetPrice();
+});
+
 labelArray = [];
 data = [];
 
@@ -128,6 +142,19 @@ async function getAndSetPrice() {
     if (gold.style.backgroundColor = '#414b57') {
       gold.style.backgroundColor = ''
     }
+  }
+
+  if(range == 'week'){
+    if(month.style.backgroundColor = '#525861'){
+      month.style.backgroundColor = '';
+    }
+    week.style.backgroundColor = '#525861';
+  }
+  else if(range == 'month'){
+    if(week.style.backgroundColor = '#525861'){
+      week.style.backgroundColor = ''
+    }
+    month.style.backgroundColor = '#525861'
   }
 
   for (i = 0; i < dataJSON.length; i++) {

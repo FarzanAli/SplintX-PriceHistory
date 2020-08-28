@@ -39,7 +39,6 @@ optionsList.forEach(o => {
     selected.innerHTML = o.querySelector("label").innerHTML;
     cardDetails(selected.innerHTML)
     optionsContainer.classList.remove("active");
-    getAndSetPrice();
   });
 });
 
@@ -59,12 +58,12 @@ const filterList = searchTerm => {
 //Foil(second)
 secondSelectedTrue.addEventListener("click", () => {
   foil = true;
-  getAndSetPrice();
+  getAndSetPrice(id, edition, foil);
 });
 
 secondSelectedFalse.addEventListener("click", () => {
   foil = false;
-  getAndSetPrice();
+  getAndSetPrice(id, edition, foil);
 });
 //Edition(third)
 
@@ -88,7 +87,7 @@ thirdOptionsList.forEach(o => {
     else if (thirdSelected.innerHTML == "Untamed") { edition = 4; }
 
     thirdOptionsContainer.classList.remove("active");
-    getAndSetPrice();
+    getAndSetPrice(id, edition, foil);
   });
 });
 
@@ -105,32 +104,27 @@ const thirdFilterList = searchTerm => {
   });
 };
 
-week.addEventListener("click", () =>{
+week.addEventListener("click", () => {
   range = 'week'
-  getAndSetPrice();
+  getAndSetPrice(id, edition, foil);
 });
 
-month.addEventListener("click", () =>{
+month.addEventListener("click", () => {
   range = 'month'
-  getAndSetPrice();
+  getAndSetPrice(id, edition, foil);
 });
 
-labelArray = [];
-data = [];
+datesArray = [];
 
-data_url = 'http://18.223.152.60:8080/history'
-
-async function getAndSetPrice() {
-  data.splice(0, data.length)
-  labelArray.splice(0, labelArray.length)
-
-  const response = await fetch(data_url);
-  const dataJSON = await response.json();
+async function getAndSetPrice(id, edition, foil) {
 
   foilStr = "";
+  foilInt = 0;
+
 
   if (foil == true) {
     foilStr = "True"
+    foilInt = 1
     gold.style.backgroundColor = '#eba82d'
     if (regular.style.backgroundColor = '#414b57') {
       regular.style.backgroundColor = ''
@@ -138,68 +132,105 @@ async function getAndSetPrice() {
   }
   else if (foil == false) {
     foilStr = "False"
+    foilInt = 0
     regular.style.backgroundColor = '#414b57'
     if (gold.style.backgroundColor = '#414b57') {
       gold.style.backgroundColor = ''
     }
   }
 
-  if(range == 'week'){
-    if(month.style.backgroundColor = '#525861'){
-      month.style.backgroundColor = '';
+  if (range == "week") {
+    if (month.style.backgroundColor = '#525861') {
+      month.style.backgroundColor = ''
     }
-    week.style.backgroundColor = '#525861';
+    week.style.backgroundColor = '#525861'
   }
-  else if(range == 'month'){
-    if(week.style.backgroundColor = '#525861'){
+  else if (range == "month") {
+    if (week.style.backgroundColor = '#525861') {
       week.style.backgroundColor = ''
     }
     month.style.backgroundColor = '#525861'
   }
 
-  for (i = 0; i < dataJSON.length; i++) {
+  priceHistory = [];
+  weekArray = [];
+  monthArray = [];
 
-    if (dataJSON[i].target == "sm.card_value.card_id=" + id + ";edition=" + edition + ";gold=" + foilStr) {
-      if (data.length == 0 && labelArray.length == 0) {
-        for (j = 0; j < dataJSON[i].datapoints.length; j++) {
-          milliseconds = dataJSON[i].datapoints[j][1] * 1000;
-          date = new Date(milliseconds).toLocaleDateString('en-US', { timeZone: 'GMT' });
-          labelArray.push(date);
+  var cardCred = [];
 
-          data.push({ y: dataJSON[i].datapoints[j][0] })
+  var card = {};
+  
+  card.id = id;
+  card.foil = foilInt;
+  card.edition = edition;
+
+  cardCred.push(card);
+
+  $(document).ready(function () {
+
+    $.ajax({
+      url: "http://localhost/SplintX/SplintX-PriceHistory/Files/db.php",
+      method: "POST",
+      data: {card : JSON.stringify(cardCred)},
+      success: function(data){
+        dataArray = JSON.parse(data);
+        priceHistory = dataArray[1];
+        datesArray = dataArray[0];
+        for (var i in datesArray) {
+          datesArray[i] = datesArray[i].slice(0, datesArray[i].length - 11);
         }
-      }
-    }
-  }
-  updateChart(myChart);
+        if (range == 'week') {
+          monthArray.splice(0, monthArray.length)
+
+          if (monthArray.length == 0) {
+            for (var i = 0; l = 7, i < l; i++) {
+              weekArray.push(datesArray[datesArray.length - i - 1]);
+            }
+            datesArray = weekArray;
+          }
+        }
+        else if (range == 'month') {
+          weekArray.splice(0, weekArray.length)
+          if (weekArray.length == 0) {
+            for (var i = 0; l = 31, i < l; i++) {
+              monthArray.push(datesArray[datesArray.length - i - 1]);
+            }
+            datesArray = monthArray;
+          }
+        }
+
+        //Chart configurations
+        config = {
+          type: 'line',
+          data: {
+            labels: datesArray,
+            datasets: [{
+              label: 'Price(USD)',
+              data: priceHistory,
+              fill: false,
+              borderColor: ['rgba(255, 99, 132, 1)'],
+              borderWidth: 3
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: true
+          }
+        }
+
+        //Context
+        let ctx = document.getElementById('myChart').getContext('2d');
+
+        //Chart
+        let myChart = new Chart(ctx, config)
+        updateChart(myChart)
+      },
+      error: function(data){console.log(data)}
+    });
+  });
 }
 
-//Chart configurations
 
-
-config = {
-  type: 'line',
-  data: {
-    labels: labelArray,
-    datasets: [{
-      label: 'Price(USD)',
-      data: data,
-      fill: false,
-      borderColor: ['rgba(255, 99, 132, 1)'],
-      borderWidth: 3
-    }]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: true
-  }
-}
-
-//Context
-let ctx = document.getElementById('myChart').getContext('2d');
-
-//Chart
-let myChart = new Chart(ctx, config)
 
 function updateChart(chart) {
   chart.update();
@@ -212,8 +243,9 @@ async function cardDetails(givenName) {
   for (i = 0; i < data.length; i++) {
     if (data[i].name == givenName) {
       id = data[i].id;
+      getAndSetPrice(id, edition, foil)
     }
   }
 }
 
-getAndSetPrice();
+getAndSetPrice(id, edition, foil);

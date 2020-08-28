@@ -16,7 +16,7 @@ body {
   position: relative
 }
 
-#myChart{
+#myChartCanvas{
   max-width: 1000px;
 }
 

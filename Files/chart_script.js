@@ -24,147 +24,6 @@ let regular = document.querySelector(".false-option");
 let week = document.querySelector(".week-option");
 let month = document.querySelector(".month-option");
 
-async function getAndSetPrice(id, edition, foil) {
-
-  foilStr = "";
-  foilInt = 0;
-
-
-  if (foil == true) {
-    foilStr = "True"
-    foilInt = 1
-    gold.style.backgroundColor = '#eba82d'
-    if (regular.style.backgroundColor = '#414b57') {
-      regular.style.backgroundColor = ''
-    }
-  }
-  else if (foil == false) {
-    foilStr = "False"
-    foilInt = 0
-    regular.style.backgroundColor = '#414b57'
-    if (gold.style.backgroundColor = '#414b57') {
-      gold.style.backgroundColor = ''
-    }
-  }
-
-  if (range == "week") {
-    if (month.style.backgroundColor = '#525861') {
-      month.style.backgroundColor = ''
-    }
-    week.style.backgroundColor = '#525861'
-  }
-  else if (range == "month") {
-    if (week.style.backgroundColor = '#525861') {
-      week.style.backgroundColor = ''
-    }
-    month.style.backgroundColor = '#525861'
-  }
-  
-  datesArray = [];
-  priceHistory = [];
-  weekArray = [];
-  monthArray = [];
-
-  var cardCred = [];
-
-  var card = {};
-  
-  card.id = id;
-  card.foil = foilInt;
-  card.edition = edition;
-
-  cardCred.push(card);
-
-  $(document).ready(function () {
-
-    $.ajax({
-      url: "http://localhost/SplintX/SplintX-PriceHistory/Files/db.php",
-      method: "POST",
-      data: {card : JSON.stringify(cardCred)},
-      success: function(data){
-        dataArray = JSON.parse(data);
-        priceHistory = dataArray[1];
-        datesArray = dataArray[0];
-        for (var i in datesArray) {
-          datesArray[i] = datesArray[i].slice(0, datesArray[i].length - 11);
-        }
-        if (range == 'week') {
-          monthArray.splice(0, monthArray.length)
-
-          if (monthArray.length == 0) {
-            for (var i = 0; l = 7, i < l; i++) {
-              weekArray.push(datesArray[datesArray.length - i - 1]);
-            }
-            datesArray = weekArray;
-          }
-        }
-        else if (range == 'month') {
-          weekArray.splice(0, weekArray.length)
-          if (weekArray.length == 0) {
-            for (var i = 0; l = 31, i < l; i++) {
-              monthArray.push(datesArray[datesArray.length - i - 1]);
-            }
-            datesArray = monthArray;
-          }
-        }
-
-        //Chart configurations
-        config = {
-          type: 'line',
-          data: {
-            labels: datesArray,
-            datasets: [{
-              label: 'Price(USD)',
-              data: priceHistory,
-              fill: true,
-              backgroundColor: ['rgba(255, 99, 132, 0.1)'],
-              borderColor: ['rgba(255, 99, 132, 1)'],
-              borderWidth: 3
-            }]
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: true,
-            scales: {
-              yAxes: [{
-                ticks: {
-                  suggestedMin: 0
-                }
-              }]
-            }
-          }
-        }
-
-        //Context
-        let ctx = document.getElementById('myChart').getContext('2d');
-
-        //Chart
-        let myChart = new Chart(ctx, config)
-        updateChart(myChart)
-      },
-      error: function(data){console.log(data)}
-    });
-  });
-}
-
-function updateChart(chart) {
-  chart.update();
-}
-
-
-async function cardDetails(givenName) {
-  url = 'https://steemmonsters.com/cards/get_details'
-  const response = await fetch(url);
-  const data = await response.json();
-  for (i = 0; i < data.length; i++) {
-    if (data[i].name == givenName) {
-      id = data[i].id;
-      getAndSetPrice(id, edition, foil)
-    }
-  }
-}
-
-getAndSetPrice(id, edition, foil);
 
 selected.addEventListener("click", () => {
   optionsContainer.classList.toggle("active");
@@ -254,3 +113,147 @@ month.addEventListener("click", () => {
   range = 'month'
   getAndSetPrice(id, edition, foil);
 });
+
+datesArray = [];
+
+async function getAndSetPrice(id, edition, foil) {
+
+  foilStr = "";
+  foilInt = 0;
+
+
+  if (foil == true) {
+    foilStr = "True"
+    foilInt = 1
+    gold.style.backgroundColor = '#eba82d'
+    if (regular.style.backgroundColor = '#414b57') {
+      regular.style.backgroundColor = ''
+    }
+  }
+  else if (foil == false) {
+    foilStr = "False"
+    foilInt = 0
+    regular.style.backgroundColor = '#414b57'
+    if (gold.style.backgroundColor = '#414b57') {
+      gold.style.backgroundColor = ''
+    }
+  }
+
+  if (range == "week") {
+    if (month.style.backgroundColor = '#525861') {
+      month.style.backgroundColor = ''
+    }
+    week.style.backgroundColor = '#525861'
+  }
+  else if (range == "month") {
+    if (week.style.backgroundColor = '#525861') {
+      week.style.backgroundColor = ''
+    }
+    month.style.backgroundColor = '#525861'
+  }
+
+  priceHistory = [];
+  weekArray = [];
+  monthArray = [];
+
+  var cardCred = [];
+
+  var card = {};
+  
+  card.id = id;
+  card.foil = foilInt;
+  card.edition = edition;
+
+  cardCred.push(card);
+
+  $(document).ready(function () {
+
+    $.ajax({
+      url: "http://localhost/SplintX/SplintX-PriceHistory/Files/db.php",
+      method: "POST",
+      data: {card : JSON.stringify(cardCred)},
+      success: function(data){
+        dataArray = JSON.parse(data);
+        priceHistory = dataArray[1];
+        datesArray = dataArray[0];
+        for (var i in datesArray) {
+          datesArray[i] = datesArray[i].slice(0, datesArray[i].length - 11);
+        }
+        if (range == 'week') {
+          monthArray.splice(0, monthArray.length)
+
+          if (monthArray.length == 0) {
+            for (var i = 0; l = 7, i < l; i++) {
+              weekArray.push(datesArray[datesArray.length - i - 1]);
+            }
+            datesArray = weekArray;
+          }
+        }
+        else if (range == 'month') {
+          weekArray.splice(0, weekArray.length)
+          if (weekArray.length == 0) {
+            for (var i = 0; l = 31, i < l; i++) {
+              monthArray.push(datesArray[datesArray.length - i - 1]);
+            }
+            datesArray = monthArray;
+          }
+        }
+
+        //Chart configurations
+        config = {
+          type: 'line',
+          data: {
+            labels: datesArray,
+            datasets: [{
+              label: 'Price(USD)',
+              data: priceHistory,
+              fill: true,
+              backgroundColor: ['rgba(255, 99, 132, 0.1)'],
+              borderColor: ['rgba(255, 99, 132, 1)'],
+              borderWidth: 3
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            scales: {
+              yAxes: [{
+                ticks: {
+                  suggestedMin: 0
+                }
+              }]
+            }
+          }
+        }
+
+        //Context
+        let ctx = document.getElementById('myChart').getContext('2d');
+
+        //Chart
+        let myChart = new Chart(ctx, config)
+        updateChart(myChart)
+      },
+      error: function(data){console.log(data)}
+    });
+  });
+}
+
+
+
+function updateChart(chart) {
+  chart.update();
+}
+
+async function cardDetails(givenName) {
+  url = 'https://steemmonsters.com/cards/get_details'
+  const response = await fetch(url);
+  const data = await response.json();
+  for (i = 0; i < data.length; i++) {
+    if (data[i].name == givenName) {
+      id = data[i].id;
+      getAndSetPrice(id, edition, foil)
+    }
+  }
+}
+
+getAndSetPrice(id, edition, foil);

@@ -25,95 +25,6 @@ let week = document.querySelector(".week-option");
 let month = document.querySelector(".month-option");
 
 
-selected.addEventListener("click", () => {
-  optionsContainer.classList.toggle("active");
-  searchBox.value = "";
-  filterList("");
-  if (optionsContainer.classList.contains("active")) {
-    searchBox.focus();
-  }
-});
-
-optionsList.forEach(o => {
-  o.addEventListener("click", () => {
-    selected.innerHTML = o.querySelector("label").innerHTML;
-    cardDetails(selected.innerHTML)
-    optionsContainer.classList.remove("active");
-  });
-});
-
-searchBox.addEventListener("keyup", function (e) {
-  filterList(e.target.value);
-});
-
-const filterList = searchTerm => {
-  searchTerm = searchTerm.toLowerCase();
-  optionsList.forEach(option => {
-    let label = option.firstElementChild.nextElementSibling.innerText.toLowerCase();
-    if (label.indexOf(searchTerm) != -1) { option.style.display = "block"; }
-    else { option.style.display = "none"; }
-  });
-};
-
-//Foil(second)
-secondSelectedTrue.addEventListener("click", () => {
-  foil = true;
-  getAndSetPrice(id, edition, foil);
-});
-
-secondSelectedFalse.addEventListener("click", () => {
-  foil = false;
-  getAndSetPrice(id, edition, foil);
-});
-//Edition(third)
-
-thirdSelected.addEventListener("click", () => {
-  thirdOptionsContainer.classList.toggle("active");
-  thirdSearchBox.value = "";
-  thirdFilterList("");
-  if (thirdOptionsContainer.classList.contains("active")) {
-    thirdSearchBox.focus();
-  }
-});
-
-thirdOptionsList.forEach(o => {
-  o.addEventListener("click", () => {
-    thirdSelected.innerHTML = o.querySelector("label").innerHTML;
-
-    if (thirdSelected.innerHTML == "Alpha") { edition = 0; }
-    else if (thirdSelected.innerHTML == "Beta") { edition = 1; }
-    else if (thirdSelected.innerHTML == "Promo") { edition = 2; }
-    else if (thirdSelected.innerHTML == "Reward") { edition = 3; }
-    else if (thirdSelected.innerHTML == "Untamed") { edition = 4; }
-
-    thirdOptionsContainer.classList.remove("active");
-    getAndSetPrice(id, edition, foil);
-  });
-});
-
-thirdSearchBox.addEventListener("keyup", function (e) {
-  thirdFilterList(e.target.value);
-});
-
-const thirdFilterList = searchTerm => {
-  searchTerm = searchTerm.toLowerCase();
-  thirdOptionsList.forEach(option => {
-    let label = option.firstElementChild.nextElementSibling.innerText.toLowerCase();
-    if (label.indexOf(searchTerm) != -1) { option.style.display = "block"; }
-    else { option.style.display = "none"; }
-  });
-};
-
-week.addEventListener("click", () => {
-  range = 'week'
-  getAndSetPrice(id, edition, foil);
-});
-
-month.addEventListener("click", () => {
-  range = 'month'
-  getAndSetPrice(id, edition, foil);
-});
-
 datesArray = [];
 
 async function getAndSetPrice(id, edition, foil) {
@@ -207,14 +118,22 @@ async function getAndSetPrice(id, edition, foil) {
             datasets: [{
               label: 'Price(USD)',
               data: priceHistory,
-              fill: false,
+              fill: true,
+              backgroundColor: ['rgba(255, 99, 132, 0.1)'],
               borderColor: ['rgba(255, 99, 132, 1)'],
               borderWidth: 3
             }]
           },
           options: {
             responsive: true,
-            maintainAspectRatio: true
+            maintainAspectRatio: true,
+            scales: {
+              yAxes: [{
+                ticks: {
+                  suggestedMin: 0
+                }
+              }]
+            }
           }
         }
 
@@ -230,11 +149,10 @@ async function getAndSetPrice(id, edition, foil) {
   });
 }
 
-
-
 function updateChart(chart) {
   chart.update();
 }
+
 
 async function cardDetails(givenName) {
   url = 'https://steemmonsters.com/cards/get_details'
@@ -249,3 +167,92 @@ async function cardDetails(givenName) {
 }
 
 getAndSetPrice(id, edition, foil);
+
+selected.addEventListener("click", () => {
+  optionsContainer.classList.toggle("active");
+  searchBox.value = "";
+  filterList("");
+  if (optionsContainer.classList.contains("active")) {
+    searchBox.focus();
+  }
+});
+
+optionsList.forEach(o => {
+  o.addEventListener("click", () => {
+    selected.innerHTML = o.querySelector("label").innerHTML;
+    cardDetails(selected.innerHTML)
+    optionsContainer.classList.remove("active");
+  });
+});
+
+searchBox.addEventListener("keyup", function (e) {
+  filterList(e.target.value);
+});
+
+const filterList = searchTerm => {
+  searchTerm = searchTerm.toLowerCase();
+  optionsList.forEach(option => {
+    let label = option.firstElementChild.nextElementSibling.innerText.toLowerCase();
+    if (label.indexOf(searchTerm) != -1) { option.style.display = "block"; }
+    else { option.style.display = "none"; }
+  });
+};
+
+//Foil(second)
+secondSelectedTrue.addEventListener("click", () => {
+  foil = true;
+  getAndSetPrice(id, edition, foil);
+});
+
+secondSelectedFalse.addEventListener("click", () => {
+  foil = false;
+  getAndSetPrice(id, edition, foil);
+});
+//Edition(third)
+
+thirdSelected.addEventListener("click", () => {
+  thirdOptionsContainer.classList.toggle("active");
+  thirdSearchBox.value = "";
+  thirdFilterList("");
+  if (thirdOptionsContainer.classList.contains("active")) {
+    thirdSearchBox.focus();
+  }
+});
+
+thirdOptionsList.forEach(o => {
+  o.addEventListener("click", () => {
+    thirdSelected.innerHTML = o.querySelector("label").innerHTML;
+
+    if (thirdSelected.innerHTML == "Alpha") { edition = 0; }
+    else if (thirdSelected.innerHTML == "Beta") { edition = 1; }
+    else if (thirdSelected.innerHTML == "Promo") { edition = 2; }
+    else if (thirdSelected.innerHTML == "Reward") { edition = 3; }
+    else if (thirdSelected.innerHTML == "Untamed") { edition = 4; }
+
+    thirdOptionsContainer.classList.remove("active");
+    getAndSetPrice(id, edition, foil);
+  });
+});
+
+thirdSearchBox.addEventListener("keyup", function (e) {
+  thirdFilterList(e.target.value);
+});
+
+const thirdFilterList = searchTerm => {
+  searchTerm = searchTerm.toLowerCase();
+  thirdOptionsList.forEach(option => {
+    let label = option.firstElementChild.nextElementSibling.innerText.toLowerCase();
+    if (label.indexOf(searchTerm) != -1) { option.style.display = "block"; }
+    else { option.style.display = "none"; }
+  });
+};
+
+week.addEventListener("click", () => {
+  range = 'week'
+  getAndSetPrice(id, edition, foil);
+});
+
+month.addEventListener("click", () => {
+  range = 'month'
+  getAndSetPrice(id, edition, foil);
+});

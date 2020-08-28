@@ -24,9 +24,6 @@ let regular = document.querySelector(".false-option");
 let week = document.querySelector(".week-option");
 let month = document.querySelector(".month-option");
 
-
-datesArray = [];
-
 async function getAndSetPrice(id, edition, foil) {
 
   foilStr = "";
@@ -62,7 +59,8 @@ async function getAndSetPrice(id, edition, foil) {
     }
     month.style.backgroundColor = '#525861'
   }
-
+  
+  datesArray = [];
   priceHistory = [];
   weekArray = [];
   monthArray = [];

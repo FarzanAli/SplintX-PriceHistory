@@ -114,8 +114,6 @@ month.addEventListener("click", () => {
   getAndSetPrice(id, edition, foil);
 });
 
-datesArray = [];
-
 async function getAndSetPrice(id, edition, foil) {
 
   foilStr = "";
@@ -152,6 +150,7 @@ async function getAndSetPrice(id, edition, foil) {
     month.style.backgroundColor = '#525861'
   }
 
+  datesArray = [];
   priceHistory = [];
   weekArray = [];
   monthArray = [];
@@ -205,12 +204,17 @@ async function getAndSetPrice(id, edition, foil) {
           data: {
             labels: datesArray,
             datasets: [{
-              label: 'Price(USD)',
-              data: priceHistory,
               fill: true,
-              backgroundColor: ['rgba(255, 99, 132, 0.1)'],
-              borderColor: ['rgba(255, 99, 132, 1)'],
-              borderWidth: 3
+              backgroundColor: 'rgba(255, 99, 132, 0.1)',
+              borderColor: 'rgba(255, 99, 132, 1)',
+              borderWidth: 2,
+              pointBorderColor: 'rgba(255, 99, 132, 1)',
+              pointRadius: 3,
+              pointBackgroundColor: 'rgba(255, 99, 132, 1)',
+              pointHoverRadius: 6,
+              pointHoverBackgroundColor: ['rgba(255, 99, 132, 1)'],
+              label: 'Price(USD)',
+              data: priceHistory
             }]
           },
           options: {
@@ -225,13 +229,15 @@ async function getAndSetPrice(id, edition, foil) {
             }
           }
         }
+        var graphCanvas = $('#myChartCanvas');
+        var context = graphCanvas.get(0).getContext("2d");
 
-        //Context
-        let ctx = document.getElementById('myChart').getContext('2d');
+        if(window.bar != undefined){
+          window.bar.destroy();
+        }
 
-        //Chart
-        let myChart = new Chart(ctx, config)
-        updateChart(myChart)
+        window.bar = new Chart(context, config)
+        updateChart(window.bar)
       },
       error: function(data){console.log(data)}
     });

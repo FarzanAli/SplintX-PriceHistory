@@ -8,10 +8,10 @@ function pre_r($array){
 
 function getDatesAndPrice(){
 
-$servername = "db-mysql-nyc1-11435-do-user-7725489-0.a.db.ondigitalocean.com:25060";
-$username = "doadmin";
-$password = "u1fgkwmjizyn7fny";
-$dbname = "priceHistory";
+$servername = "private";
+$username = "private";
+$password = "private";
+$dbname = "private";
 
 $sql = "SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='priceHistory' AND `TABLE_NAME`='lowPrice';";
 
